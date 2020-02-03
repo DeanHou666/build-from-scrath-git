@@ -1,3 +1,17 @@
-<p>
-  post-form works!
-</p>
+<h3>post form</h3>
+<button (click)="showForm=!showForm" class="btn btn-sm btn-dark">show form</button>
+<div class="card-body" *ngIf="showForm">
+  <form>
+    <div class="form-group">
+      <label>title</label>
+      <input type="text" class="form-control" #title name="title">
+    </div>
+    <div class="form-group">
+      <label>body</label>
+      <input type="text" class="form-control" #body name="body">
+    </div>
+    <input type="hidden" #id name="id">
+    <button (click)="addPost(title.value,body.value)">add post</button>
+    <button (click)="updatePost()">update post</button>
+  </form>
+</div>
