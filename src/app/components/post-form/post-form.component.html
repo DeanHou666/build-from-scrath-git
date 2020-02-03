@@ -4,14 +4,14 @@
   <form>
     <div class="form-group">
       <label>title</label>
-      <input type="text" class="form-control" #title name="title">
+      <input type="text" class="form-control" #title name="title" [(ngModel)]="currentPost.title">
     </div>
     <div class="form-group">
       <label>body</label>
-      <input type="text" class="form-control" #body name="body">
+      <input type="text" class="form-control" #body name="body" [(ngModel)]="currentPost.body">
     </div>
-    <input type="hidden" #id name="id">
-    <button (click)="addPost(title.value,body.value)">add post</button>
-    <button (click)="updatePost()">update post</button>
+    <input type="hidden" #id name="id" [(ngModel)]="currentPost.id">
+    <button class="btn btn-dark form-control" (click)="addPost(title.value,body.value)" *ngIf="!isEdit">add post</button>
+    <button class="btn btn-warning  btn-sm form-control" (click)="updatePost()" *ngIf="isEdit">update post</button>
   </form>
 </div>
