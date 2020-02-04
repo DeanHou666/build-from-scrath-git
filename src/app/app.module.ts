@@ -9,7 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { HomeComponent } from './components/home/home.component';
+
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     PostFormComponent,
     UsersComponent,
     UserComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
