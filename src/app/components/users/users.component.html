@@ -1,0 +1,51 @@
+<h3>user form</h3>
+<button class="btn btn-sm btn-dark" (click)="showForm=!showForm">show Form</button>
+<div class="card card-body" *ngIf="showForm">
+  <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+    <div class="form-group">
+      <label>firstName</label>
+      <input type="text" class="form-control" #userFirstName="ngModel" name="firstName" [(ngModel)]="user.firstName"
+      [ngClass]="{'is-invalid': userFirstName.errors && userFirstName.touched}"
+      required
+      minlength="2"
+      >
+      <div class="invalid-feedback" [hidden]="!userFirstName.errors?.required">
+        <p>firstName is needed</p>
+      </div>
+      <div class="invalid-feedback" [hidden]="!userFirstName.errors?.minlength">
+        <p>lest 2 characters</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>lastName</label>
+      <input type="text" class="form-control" #userLastName="ngModel" name="lastName" [(ngModel)]="user.lastName"
+      [ngClass]="{'is-invalid': userLastName.errors && userLastName.touched}"
+      required
+      minlength="4"
+      >
+      <div class="invalid-feedback" [hidden]="!userLastName.errors?.required">
+        <p>lastName is needed</p>
+      </div>
+      <div class="invalid-feedback" [hidden]="!userLastName.errors?.minlength">
+        <p>lest 4 characters</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>email</label>
+      <input type="text" class="form-control" #userEmail="ngModel" name="email" [(ngModel)]="user.email">
+    </div>
+    <button class="btn btn-dark form-control">add user</button>
+  </form>
+</div>
+
+<h3>User List</h3>
+<ul class="list-unstyled card card-body " *ngFor="let user of users">
+  <li>
+    <h3>{{user.firstName}} {{user.lastName}}
+      <button class="btn btn-sm btn-dark" (click)="toggleList(user)"><i class="fa fa-plus" [ngClass]="user.hide? 'fa fa-minus' : 'fa fa-plus'"></i></button>
+    </h3>
+    <ul class="list-unstyled list-group" *ngIf="user.hide">
+      <li>{{user.email}}</li>
+    </ul>
+  </li>
+</ul>
