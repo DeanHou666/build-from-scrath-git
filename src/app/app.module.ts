@@ -11,6 +11,7 @@ import { UserComponent } from './components/user/user.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HomeComponent } from './components/home/home.component';
+import { PostComponent } from './components/post/post.component';
 
 
 
@@ -22,7 +23,8 @@ import { HomeComponent } from './components/home/home.component';
     UsersComponent,
     UserComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
