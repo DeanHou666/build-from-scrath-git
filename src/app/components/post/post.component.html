@@ -1,3 +1,12 @@
 <p>
   post works!
 </p>
+
+<a routerLink="/posts" class="btn btn-sm btn-dark mb-3">BACK</a>
+<div *ngIf="post" class="card">
+  <div class="card-body">
+    <h3>{{post.title}}</h3>
+    <p>{{post.body}}</p>
+    <small>{{post.id}}</small>
+  </div>
+</div>

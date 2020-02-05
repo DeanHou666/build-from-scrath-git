@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { PostComponent } from './components/post/post.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 
 
@@ -24,7 +25,8 @@ import { PostComponent } from './components/post/post.component';
     UserComponent,
     NavbarComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
