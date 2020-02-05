@@ -9,7 +9,6 @@ import { LogService } from 'src/app/services/log.service';
 })
 export class LogsComponent implements OnInit {
   logs:Log[]
-
   constructor(private logService:LogService) { }
 
   ngOnInit() {
@@ -17,5 +16,10 @@ export class LogsComponent implements OnInit {
   }
   onSelect(log:Log){
     this.logService.setFormLog(log)
+  }
+  onDelete(log:Log){
+    if(confirm('sure to delete?')){
+      this.logService.deleteLog(log)
+    }
   }
 }
