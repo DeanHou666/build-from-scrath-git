@@ -1,0 +1,20 @@
+import { Injectable } from '@angular/core';
+import { Log } from '../models/log';
+import { Observable, of } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LogService {
+  logs:Log[];
+  constructor() { 
+    this.logs=[
+      {id:'1',text:'Generate Components',date:new Date('12/25/2017 12:23:01')},
+      {id:'2',text:'Generate Components01',date:new Date('12/26/2017 12:23:01')},
+      {id:'3',text:'Generate Components02',date:new Date('12/27/2017 12:23:01')}
+    ]
+  }
+  getLogs():Observable<Log[]>{
+    return of(this.logs)
+  }
+}
