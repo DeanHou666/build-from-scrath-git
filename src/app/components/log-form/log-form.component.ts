@@ -41,6 +41,7 @@ export class LogFormComponent implements OnInit {
       }
       this.logService.updateLog(updLog)
     }
+    this.clearState();
   }
 
    generateUUID() {
@@ -51,6 +52,13 @@ export class LogFormComponent implements OnInit {
       return (c=='x' ? r : (r&0x3|0x8)).toString(16);
     });
     return uuid;
-    };
+    }
+
+    clearState(){
+      this.isNew=true;
+      this.id='';
+      this.text='';
+      this.date=''
+    }
 
 }
