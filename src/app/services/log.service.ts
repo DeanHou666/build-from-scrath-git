@@ -14,14 +14,14 @@ export class LogService {
   stateClear=this.stateSource.asObservable()
 
   constructor() { 
-    this.logs=[
-      // {id:'1',text:'Generate Components',date:new Date('12/25/2017 12:23:01')},
-      // {id:'2',text:'Generate Components01',date:new Date('12/26/2017 12:23:01')},
-      // {id:'3',text:'Generate Components02',date:new Date('12/27/2017 12:23:01')}
-    ]
+    this.logs=[]
   }
   getLogs():Observable<Log[]>{
-    return of(this.logs)
+    this.logs=JSON.parse(localStorage.getItem('logs'))
+    
+    return of(this.logs.sort((a,b)=>{
+      return b.date=a.date
+    }))
   }
   setFormLog(log:Log){
     this.logSource.next(log)
@@ -29,6 +29,7 @@ export class LogService {
 
   addLog(log:Log){
     this.logs.unshift(log)
+    localStorage.setItem('logs',JSON.stringify(this.logs))
   }
 
   updateLog(log:Log){
@@ -38,6 +39,7 @@ export class LogService {
       }
     })
     this.logs.unshift(log)
+    localStorage.setItem('logs',JSON.stringify(this.logs))
   }
   deleteLog(log:Log){
     this.logs.forEach((cur,index)=>{
@@ -45,6 +47,7 @@ export class LogService {
         this.logs.splice(index,1);
       }
     })
+    localStorage.setItem('logs',JSON.stringify(this.logs))
   }
   clearState(){
     this.stateSource.next(true)
